@@ -10,17 +10,21 @@ class AddStudent extends React.Component {
       age: "",
       gender: "",
       city: "",
+      image:" ",
     };
   }
 
-  handleChange() {
-    this.setState({ name: "your full name", age: "", gender: "", city: "" });
-    console.log(this.state.name);
-  }
+  // handleChange() {
+  //   this.setState({ name: "your full name", age: "", gender: "", city: "" });
+  //   console.log(this.state.name);
+  // }
 
   handleSubmit(event) {
-    alert(" the user was added!!");
+
+    console.log(this.state.name);
     event.preventDefault();
+   // alert(" the user was added!!");
+
   }
 
   setName = (event) => {
@@ -33,14 +37,20 @@ class AddStudent extends React.Component {
     console.log(this.state.name);
   };
 
-  setName = (event) => {
+  setAge = (event) => {
     this.setState({ name: event.target.value });
-    console.log(this.state.name);
+    console.log(this.state.age);
   };
 
-  setName = (event) => {
-    this.setState({ name: event.target.value });
-    console.log(this.state.name);
+  setGender = (event) => {
+    this.setState({ gender: event.target.value });
+    console.log(this.state.gender);
+  };
+
+  
+  setCity = (event) => {
+    this.setState({ city: event.target.value });
+    console.log(this.state.city);
   };
 
   render() {
@@ -77,7 +87,7 @@ class AddStudent extends React.Component {
               <input
                 type="number"
                 value={this.state.name}
-                onChange={this.handleChange}
+                onChange={this.setAge}
                 placeholder="your age"
               />
             </label>
@@ -87,7 +97,7 @@ class AddStudent extends React.Component {
               gender:
               <input
                 value={this.state.gender}
-                onChange={this.handleChange}
+                onChange={this.setGender}
                 placeholder="your gender"
               />
             </label>
@@ -98,13 +108,13 @@ class AddStudent extends React.Component {
               city:
               <input
                 value={this.state.city}
-                onChange={this.handleChange}
+                onChange={this.setCity}
                 placeholder="your city"
               />
             </label>
             <br />
 
-            <input type="submit" value="submit"></input>
+            <input type="button" value="submit" onClick={this.handleSubmit}></input>
           </form>
         </div>
       );
